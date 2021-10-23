@@ -1,5 +1,8 @@
-function preload() {
+noseX=0;
+noseY=0;
 
+function preload() {
+    lipstick = loadImage('https://i.postimg.cc/ZKmrF7cX/toppng-com-lips-png-1024x725.png');
 }
 
 function setup() {
@@ -20,13 +23,14 @@ function modelLoaded() {
 function gotPoses(results) {
     if (results.length > 0) {
         console.log(results);
-        noseX = results[0].pose.nose.x - 25;
-        noseY = results[0].pose.nose.y + 20;
+        noseX = results[0].pose.nose.x -35;
+        noseY = results[0].pose.nose.y + 5;
     }
 }
 
 function draw() {
     image(video, 0, 0, 300, 300);
+    image(lipstick, noseX, noseY, 70, 70);
 }
 
 function take_snapshot() {
